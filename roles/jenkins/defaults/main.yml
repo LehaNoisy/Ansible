@@ -1,0 +1,9 @@
+---
+# defaults file for jenkins
+name_user: jenkins
+user_group: jenkins
+jenkins_version: 2.99
+jenkins_download_url: "http://mirrors.jenkins.io/war/{{ jenkins_version }}/jenkins.war"
+jenkins_home: /opt/jenkins/
+jenkins_bin: /opt/jenkins/bin/
+

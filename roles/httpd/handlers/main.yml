@@ -1,0 +1,7 @@
+- name: Enable_service_httpd
+  service:
+    name: httpd
+    enabled: yes
+
+- name: start_the_httpd_service
+  service: name=httpd state=started

@@ -1,0 +1,22 @@
+- name: "Devops"
+  hosts: all
+
+  tasks:
+  - name: "group"
+    group:
+      name: "devops"
+      state: present
+
+  - name: "user"
+    user:
+      name: "devops"
+      password: "$6$ClL/ztOjgWmx6B1I$2IARA4i7Yj51Oe0PddONUYTKL5WwZsn7LQIXFKXjERwytqxvYvuwtKc/HjMlgMTgUbEb1X6yGLsu4Ktg8ztc10"
+      group: "devops"
+      groups: wheel
+
+  - name: Set authorized key in alternate location
+    authorized_key: 
+      user: "devops"
+      key: "{{ lookup('file', '/home/student/ansible/day1/devops_key.pub') }}" 
+      path: "/home/devops/.ssh/authorized_keys" 
+      manage_dir: False

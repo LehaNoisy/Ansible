@@ -1,0 +1,12 @@
+- name: "Devops"
+  hosts: all
+
+  pre_tasks:
+  - debug: msg="Start httpd"
+
+  roles:
+  - httpd
+
+  post_tasks:
+  - debug: msg="End httpd!"
+

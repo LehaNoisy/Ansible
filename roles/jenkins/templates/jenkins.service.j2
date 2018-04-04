@@ -1,0 +1,13 @@
+[Unit]
+Description=Jenkins Service
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/java -DJENKINS_HOME={{ jenkins_home }} -jar {{ jenkins_bin }}jenkins.war
+Restart=on-abort
+User={{ name_user }}
+Group={{ user_group }}
+
+[Install]
+WantedBy=multi-user.target

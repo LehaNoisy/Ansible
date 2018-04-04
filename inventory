@@ -1,0 +1,12 @@
+[webservers]
+10.1.1.15
+
+[appservers]
+10.1.1.30
+
+[servers:children]
+webservers
+appservers
+
+[servers:vars]
+ansible_connection=ssh
