@@ -1,0 +1,57 @@
+- name: "jenk"
+  hosts: appservers
+
+  vars:
+    jdk_release: "1.8.0"
+
+  tasks:   
+  - name: Jenkins - install | Install java
+    yum: name=java state=installed
+
+  - name: Jenkins - install | Install Jenkins 2.99
+    yum: pkg=https://pkg.jenkins.io/redhat/jenkins-2.99-1.1.noarch.rpm state=installed
+
+  - name: Jenkins - install | Start and enable Jenkins 2.99
+    service: name=jenkins state=started enabled=yes
+
+  - name: Ensure OpenJDK Installed
+    yum: name=java-{{ jdk_release }}-openjdk
+
+  - name: Check Java Version
+    shell: java -version 2>&1 | grep "{{ jdk_release }}"
+
+
+
+- name: "httpd"
+  hosts: webservers
+
+  tasks:
+  - name: httpd install
+    yum: name=httpd state=latest
+
+  - name: config httpd (/etc/httpd/conf/httpd.conf)
+    blockinfile:
+      insertafter: "AddDefaultCharset UTF-8"
+      path: /etc/httpd/conf/httpd.conf
+      content: "<VirtualHost *:80>\n
+      ProxyRequests Off\n
+      ProxyPreserveHost On\n
+      ProxyVia full \n
+
+      <proxy *>\n
+      Order deny,allow\n
+      Allow from all\n
+      </proxy> \n\n
+     
+      ProxyPass        /  http://10.1.1.15:8080/\n
+      ProxyPassReverse /  http://10.1.1.15:8080/\n
+  </VirtualHost>"
+
+  - name: Enable service httpd, and not touch the running state
+    service:
+    name: httpd
+    enabled: yes
+
+  - name: start the httpd service
+    service: name=httpd state=started
+
