@@ -1,0 +1,8 @@
+- name: "Devops"
+  hosts: webservers
+  become: yes
+
+  roles:
+  - httpd
+
+

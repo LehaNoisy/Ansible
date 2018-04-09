@@ -1,0 +1,5 @@
+- name: Set authorized key in alternate location
+  authorized_key:
+   user: "{{ main_user }}"
+   key: "{{ lookup('file', 'devops_key.pub') }}"
+   path: "/home/{{ main_user }}/.ssh/authorized_keys"

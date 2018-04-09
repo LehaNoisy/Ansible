@@ -1,0 +1,42 @@
+- name: Ensure DevopsGroup Added
+  group:
+    name: "{{ main_group | mandatory}}"
+    gid: "{{ main_group_id | default(omit)}}"
+    state: present
+  
+
+- name: Ensure DevopsUser Added
+  user:
+    name: "{{ main_user | mandatory}}"
+    comment: "User of devops"
+    uid: "{{ main_user_id | default(omit)}}"
+    group: "{{ main_group | mandatory}}"
+    groups: "{{user_groups|default(omit)}}"
+    home: "{{user_home|default(omit)}}"
+   
+
+- name: Add user in sudoers
+  template:
+   src: devops
+   dest: /etc/sudoers.d/{{ main_user }}
+  #when: (sudoers == false)
+
+- name: Set authorized key in alternate location
+  authorized_key:
+   user: "{{ main_user }}"
+   state: present
+   key: "{{ lookup('file', 'devops_key.pub') }}"
+   path: "/home/{{ main_user }}/.ssh/authorized_keys"
+   manage_dir: False 
+    
+
+- include_tasks: ssh.yml
+  when: keys == true
+
+- include_tasks: sudoers.yml
+  when: keys == true
+
+
+ 
+    
+ 

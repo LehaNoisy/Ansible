@@ -1,0 +1,20 @@
+- name: mytest
+  hosts: all
+  vars:
+    main_user: devops
+    main_group: devops
+    main_user_id: 950
+    main_group_id: 950
+    Key_pass: /home/student/ansible/day4/roles/user/files
+    user_home: /home/devops
+    user_groups: users 
+
+  roles:
+    - user
+
+- import_playbook: webservers.yml
+  tags:
+    - web
+- import_playbook: appservers.yml
+  tags:
+    - app

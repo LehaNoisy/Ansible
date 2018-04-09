@@ -1,0 +1,27 @@
+  - name: "group"
+    group:
+      name: "devops"
+      state: present
+
+  - name: "user"
+    user:
+      name: "devops"
+      group: "devops"
+
+  - name: sudoers
+    copy:
+      src: "/home/student/ansible/day2/devops"
+      dest: /etc/sudoers.d/
+
+  - name: Set authorized key in alternate location
+    authorized_key: 
+      user: "devops"
+      key: "{{ lookup('file', '/home/student/ansible/day2/roles/devops_user/files/devopsKey.pub') }}" 
+      path: "/home/devops/.ssh/authorized_keys" 
+      manage_dir: False
+
+      
+
+
+
+

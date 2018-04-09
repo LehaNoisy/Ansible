@@ -1,0 +1,11 @@
+- name: "Devops"
+  hosts: appservers
+  become: yes
+  vars:
+    java_version: java8
+
+  roles:
+  - java
+  - jenkins
+
+

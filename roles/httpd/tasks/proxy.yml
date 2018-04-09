@@ -1,0 +1,4 @@
+- name: vhosts proxy
+  template: 
+    src: vhosts.conf
+    dest: /etc/httpd/conf.d/

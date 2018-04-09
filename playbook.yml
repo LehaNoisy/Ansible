@@ -1,0 +1,89 @@
+- name: Install
+  hosts: all
+  become: yes
+  roles: 
+    - role: common
+    - role: user
+      main_user: devops
+      main_group: devops
+      main_user_id: 950
+      main_group_id: 950
+      user_home: /home/{{ main_user }}
+      user_groups: users
+      keys: true
+      sudoers: true
+    - role: jenkins
+
+
+
+#      main_user: jenkins
+#      main_group: jenkins
+#      main_user_id: 0755
+#      main_group_id: 0755
+#      user_home: /opt/{{ main_user }}
+#      user_groups: users
+#      bin folder: /opt/{{ main_user }}/bin
+#      keys: false
+#      sudoers: false
+     
+      
+
+#    - role: sanity
+#      java: true
+#      jenkins: true
+
+
+
+
+
+
+
+#- import_playbook: webservers.yml
+#- import_playbook: appservers.yml
+
+
+
+
+#- name: mytest
+#  hosts: all
+#  vars:
+#    main_user: root
+#    main_group: devops
+#    main_user_id: 950
+#    main_group_id: 950
+#    Key_pass: /home/student/ansible/day4/roles/user/files
+#    user_home: /home/devops
+#    user_groups: users 
+
+#-roles:
+#  role: user
+
+#- role: user
+#    become: yes
+#    main_user: devops
+#    main_group: devops
+#    main_user_id: 950
+#    main_group_id: 950
+#    user_home: /home/{{ main_user }}
+#    user_groups: users
+#    keys: true
+#    sudoers: true
+
+#- name: "Devops"
+#  hosts: all
+
+#  roles:
+#    - user
+
+#- import_playbook: check.yml
+#  tags:
+#    - check
+
+#- import_playbook: webservers.yml
+#  tags:
+#    - web
+#- import_playbook: appservers.yml
+#  tags:
+#    - app
+
+#- import_playbook: /home/student/ansible/day4/bug_blocks.yml

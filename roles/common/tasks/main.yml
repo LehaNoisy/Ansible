@@ -1,0 +1,4 @@
+ - name: Install locate
+   package:
+     name: mlocate
+     state: present

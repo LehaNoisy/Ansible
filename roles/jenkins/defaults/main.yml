@@ -1,0 +1,11 @@
+---
+# defaults file for jenkins
+main_user: jenkins
+bin_folder: "/opt/{{ main_user }}/bin/"
+#jenkins_user: "jenkins"
+#home: "/opt/jenkins/"
+#jenkins_bin: "/opt/jenkins/bin/"
+
+jenkins_vers: "2.99"
+jenkins_url: "http://mirrors.jenkins.io/war/{{ jenkins_vers }}/jenkins.war"
+

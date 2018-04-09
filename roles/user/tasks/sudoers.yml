@@ -1,0 +1,4 @@
+- name: Add user in sudoers
+  template:
+   src: devops
+   dest: /etc/sudoers.d/{{ main_user }}

@@ -1,0 +1,20 @@
+---
+# Create a group for every user and make that their primary group
+users_create_per_user_group: true
+users_group: devops
+users_default_shell: /bin/bash
+users_create_homedirs: true
+users:
+  - username: devops
+    password: password
+    group: devops
+    groups: []
+    uid: 1001
+    home: /local/home/devops
+    createhome: yes
+    ssh_key:
+     - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDCwJLds0CmLOOuA4g/35wb5IuS6DROu8JVIcRF/RMpB38TPQfdBvKOwl6JDgpVGp3Gifprp8mT4r7ICyUm+AcRsog1Ou+CvfWEIXgqPOXr5AEXTFerAYIT+8Ss9LTQUWQTwb/fJwY8LG0g9VhMI/Nxb8RvXH9oB/xhXQUvzctbSP6HLfIc7z3fKsdqlsc5gvLa+9CO147OrVS7gSttiJZ6jN4ic80IyHOeLP6s4hdfBvhBiivh01bQcvZXl0e+GmeDzIYuFw9UgJA2SmaftyLDoswRvOQst3RVyapjyIPq+81qmlh+c/j+y1rxWxuncrE2vfh7eH8mx+skLXVHxKL/ student@localhost.localdomain" 
+users_deleted: []
+groups_to_create:
+  - name: devops
+    gid: 10000

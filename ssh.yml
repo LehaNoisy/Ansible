@@ -1,0 +1,6 @@
+- name: Simple Play
+  hosts: loclahost
+
+  tasks:
+  - debug:
+    msg: hello, I'm Play: "Simple Play"
