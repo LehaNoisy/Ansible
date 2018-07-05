@@ -18,11 +18,11 @@
 **$ ansible all -m get_url -a "url=https://link.com dest=/home" -b**      - скачать файл в указанную директорию от рута <br />
 
 <br />
-_______________________________________ <br />
+**_______________________________________** <br />
 **$ ansible all -m yum -a "name=httpd state=installed" -b**         - установить httpd на все сервера от рута <br />
 **$ ansible all -m service -a "name=httpd state=started enabled=yes" -b**     - start and enable httpd <br />
 **$ ansible all -m yum -a "name=httpd state=removed" -b**      - удалить httpd на всех серверах от рута <br />
-________________________________________ <br />
+**________________________________________** <br />
 <br />
 
 **$ ansible-playbook roles.yml -k -i inventory -u root**    - run roles.yml <br />
