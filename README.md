@@ -16,7 +16,6 @@
 **$ ansible all -m file -a "path=/home/hello.txt state=absent" -b**      - удалить файл со всех серверов по указанному пути от рута <br />
 
 **$ ansible all -m get_url -a "url=https://link.com dest=/home" -b**      - скачать файл в указанную директорию от рута <br />
-
 <br />
 **_______________________________________** <br />
 **$ ansible all -m yum -a "name=httpd state=installed" -b**         - установить httpd на все сервера от рута <br />
