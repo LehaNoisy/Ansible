@@ -25,7 +25,7 @@ Run roles.yml
 <br />
 <br />
 
-$ ansible-inventory --graph       - график инвентори файла <br />
+**$ ansible-inventory --graph**       - график инвентори файла <br />
 $ ansible -i hosts.txt all -m ping    - запустить пинг на все сервера <br />
 $ ansible all -m setup                - информация о всех серверах <br />
 $ ansible all -m shell -a "uptime"    - запуск команды bash на сервере <br />
