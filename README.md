@@ -1,6 +1,7 @@
 # Ad-Hoc commands:
   
 <br />
+
 **$ ansible-inventory --graph**       - график инвентори файла <br />
 **$ ansible -i hosts.txt all -m ping**    - запустить пинг на все сервера <br />
 **$ ansible all -m setup**                - информация о всех серверах <br />
