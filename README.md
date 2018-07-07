@@ -31,7 +31,7 @@
 **-i**  - inventory file <br />
 **-b**  - root privilegues <br />
 <br />
-**Ansible variables:** <br />
+## Ansible variables: <br />
 **message**<br />
 <br />
 **debug** --> var: (переменная)<br />
