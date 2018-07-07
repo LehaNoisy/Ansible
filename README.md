@@ -30,7 +30,6 @@
 **-a**  - аргумент <br />
 **-i**  - inventory file <br />
 **-b**  - root privilegues <br />
-
 <br />
 **Ansible variables:** <br />
 **message**<br />
