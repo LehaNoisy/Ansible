@@ -30,3 +30,24 @@
 **-a**  - аргумент <br />
 **-i**  - inventory file <br />
 **-b**  - root privilegues <br />
+
+<br />
+<br />
+Ansible variables: <br />
+**message**<br />
+<br />
+**debug** --> var: (переменная)<br />
+debug: var=ansible_os_family<br />
+<br />
+**handlers** --> notify<br />
+handlers:<br />
+  - name: Restart Apache<br />
+    service: name=httpd state=restarted<br />
+<br />
+**set facts** --> соединить messages<br />
+set_fact: full_message="{{ message1 }} {{ message2 }}"<br />
+<br />
+**when** ---> условие (запускать если)<br />
+when: ansible_os_family == "RedHat"<br />
+<br />
+**block** --> собирает операции в блоки<br />
