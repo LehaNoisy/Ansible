@@ -1,0 +1,5 @@
+[servers]
+node1 ansible_host=18.218.177.94 ansible_user=ec2-user ansible_ssh_private_key_file=/home/alex/.ssh/node_key.pem
+
+[prod_servers]
+node2 ansible_host=18.188.204.248 ansible_user=ec2-user  ansible_user=ec2-user ansible_ssh_private_key_file=/home/alex/.ssh/alex-key-Ohio.pem
