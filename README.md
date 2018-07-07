@@ -32,8 +32,7 @@
 **-b**  - root privilegues <br />
 
 <br />
-<br />
-Ansible variables: <br />
+**Ansible variables:** <br />
 **message**<br />
 <br />
 **debug** --> var: (переменная)<br />
